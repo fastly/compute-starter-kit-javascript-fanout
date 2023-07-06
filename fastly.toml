@@ -1,0 +1,11 @@
+# This file describes a Fastly Compute@Edge package. To learn more visit:
+# https://developer.fastly.com/reference/fastly-toml/
+
+authors = ["<oss@fastly.com>"]
+description = "Enables Fanout on a service, forwarding to a backend."
+language = "javascript"
+manifest_version = 3
+name = "Fanout forwarding starter kit for JavaScript"
+
+[scripts]
+build = "npm run build"
