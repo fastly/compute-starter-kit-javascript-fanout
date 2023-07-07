@@ -18,5 +18,5 @@ async function handleRequest(event) {
   // NOTE: The request handed off to Fanout is the original request 
   // as it arrived at Compute@Edge. Any modifications made to the request 
   // before calling createFanoutHandoff() will not be seen by the backend.
-  return createFanoutHandoff(event.request, "backend");
+  return createFanoutHandoff(event.request, "origin");
 }
