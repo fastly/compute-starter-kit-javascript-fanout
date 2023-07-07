@@ -10,7 +10,7 @@ addEventListener("fetch", (event) => event.respondWith(handleRequest(event)));
  */
 async function handleRequest(event) {
   // Log service version.
-  console.log("FASTLY_SERVICE_VERSION:", env("FASTLY_SERVICE_VERSION") || "local");
+  console.log("FASTLY_SERVICE_VERSION: ", env("FASTLY_SERVICE_VERSION") || "local");
 
   // createFanoutHandoff() creates a Response instance
   // passing the original request, through Fanout, to the declared backend.
