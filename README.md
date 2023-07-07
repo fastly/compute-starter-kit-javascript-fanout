@@ -8,9 +8,9 @@ Learn about Fastly Compute@Edge with Fanout using a basic starter that sends con
 
 ## Setup
 
-The app expects a configured backend named "backend" that points to a backend server. For example, if the server is available at domain `example.com`, then you'll need to create a backend on your Compute@Edge service named "backend" with the destination host set to `example.com` and port 443. Also set 'Override Host' to the same host value.
+The app expects a configured backend named "origin" that points to an origin server. For example, if the server is available at domain `example.com`, then you'll need to create a backend on your Compute@Edge service named "origin" with the destination host set to `example.com` and port `443`. Also set `Override Host` to the same host value.
 
-After deploying the app and setting up the backend configuration, all connections received by the service will be passed through the Fanout proxy to the backend. If WebSocket-over-HTTP mode is enabled on your service, then client WebSocket activity will be converted into HTTP when sending to the backend.
+After deploying the app and setting up the backend configuration, all connections received by the service will be passed through the Fanout proxy to the origin. If WebSocket-over-HTTP mode is enabled on your service, then client WebSocket activity will be converted into HTTP when sending to the origin.
 
 ## Note
 
