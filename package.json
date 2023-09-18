@@ -1,18 +1,5 @@
 {
-  "name": "compute-starter-kit-javascript-fanout-forward",
-  "version": "0.1.0",
-  "main": "src/index.js",
-  "private": true,
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/fastly/compute-starter-kit-javascript-fanout-forward.git"
-  },
-  "author": "oss@fastly.com",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/fastly/compute-starter-kit-javascript-fanout-forward/issues"
-  },
-  "homepage": "https://developer.fastly.com/solutions/starters/compute-starter-kit-javascript-fanout-forward",
+  "type": "module",
   "engines": {
     "node": "^18.0.0"
   },
