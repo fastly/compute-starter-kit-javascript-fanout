@@ -4,7 +4,7 @@
 
 Learn about Fastly Compute with Fanout using a basic starter that sends connections through the Fanout GRIP proxy to a backend.
 
-**For more details about this and other starter kits for Fastly Compute, see the [Fastly Developer Hub](https://www.fastly.com/documentation/solutions/starters/)**.
+**For more details about this and other starter kits for Fastly Compute, see the [Fastly Documentation Hub](https://www.fastly.com/documentation/solutions/starters/)**.
 
 ## Setup
 
