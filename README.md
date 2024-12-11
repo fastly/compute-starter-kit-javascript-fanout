@@ -4,7 +4,7 @@
 
 Install this starter kit to use Fanout. It routes incoming requests through the Fanout GRIP proxy and on to an origin. It also provides some endpoints for testing subscriptions without an origin.
 
-There is no need to modify this kit. It is production-ready for typical Fanout usage that coordinates with an origin. However, if you would like to implement Fanout logic at the edge, this kit is also a good starting point for that, and you can modify it to fit your needs. See the test endpoints for inspiration.
+There is no need to modify this starter kit. It is production-ready for typical Fanout usage that coordinates with an origin. However, if you would like to implement Fanout logic at the edge, this starter kit is also a good starting point for that, and you can modify it to fit your needs. See the test endpoints for inspiration.
 
 **For more details about this and other starter kits for Compute, see the [Fastly Documentation Hub](https://www.fastly.com/documentation/solutions/starters/)**.
 
