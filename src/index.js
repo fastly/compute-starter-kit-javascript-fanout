@@ -35,8 +35,8 @@ async function handleRequest(event) {
     request.headers.set('X-Forwarded-Proto', 'https');
   }
 
-  // Request is a test request - from client, or from Fanout
-  if (host.endsWith('.edgecompute.app') && path.startsWith('/test/')) {
+  // Request is a test request
+  if (path.startsWith('/test/')) {
 
     if (request.headers.has('Grip-Sig')) {
       // Request is from Fanout, handle it here
