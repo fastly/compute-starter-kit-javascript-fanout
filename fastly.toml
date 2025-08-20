@@ -1,11 +1,23 @@
 # This file describes a Fastly Compute package. To learn more visit:
-# https://developer.fastly.com/reference/fastly-toml/
+# https://www.fastly.com/documentation/reference/compute/fastly-toml
 
 authors = ["<oss@fastly.com>"]
 description = "Enables Fanout on a service, forwarding to a backend."
 language = "javascript"
 manifest_version = 3
 name = "Fanout forwarding starter kit for JavaScript"
+
+[local_server.pushpin]
+enable = true
+
+[local_server.backends]
+[local_server.backends.origin]
+url = "https://example.com/"
+override_host = "example.com"
+
+[local_server.backends.self]
+url = "http://localhost:7676/"
+override_host = "localhost:7676"
 
 [scripts]
 build = "npm run build"
