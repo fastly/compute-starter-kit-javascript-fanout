@@ -55,7 +55,7 @@ enable = true
 
 Run the starter kit:
 ```term
-fastly compute serve
+npm run start
 ```
 
 The Fastly CLI starts Pushpin and then starts the starter kit app at http://localhost:7676/.  
