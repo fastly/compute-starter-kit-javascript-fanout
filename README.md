@@ -29,13 +29,17 @@ The app expects a configured backend named `"origin"`. It forwards all non-test 
 
 Additionally, for the test endpoints to work, the app expects a configured backend named `"self"` that points back to app itself. For example, if the service has a domain `foo.edgecompute.app`, then you'll need to create a backend on the service named `"self"` with the destination host set to `foo.edgecompute.app` and port 443. Also set "Override Host" to the same host value.
 
-You'll also need to [enable Fanout](https://www.fastly.com/documentation/guides/concepts/real-time-messaging/fanout/#enable-fanout) on your Fastly service to run this application. To enable Fanout on your service, type:
+### Enabling Fanout
+
+The first time this starter kit is deployed to your service, Fanout is enabled automatically.
+
+To [enable Fanout](https://www.fastly.com/documentation/guides/concepts/real-time-messaging/fanout/#enable-fanout) support after the fact to an existing Fastly service, type:
 
 ```shell
 fastly products --enable=fanout
 ```
 
-## Local testing
+## Testing locally
 
 To test Fanout features in the local testing environment, first obtain [Pushpin](https://pushpin.org), the open-source GRIP proxy server that Fastly Fanout is based upon, and make sure it is available on the system path.
 
@@ -58,7 +62,7 @@ Run the starter kit:
 npm run start
 ```
 
-The Fastly CLI starts Pushpin and then starts the starter kit app at http://localhost:7676/.  
+The Fastly CLI starts Pushpin and then starts the starter kit app at http://localhost:7676/.
 
 ## Test Endpoints
 
@@ -88,6 +92,21 @@ curl \
   -d '{"items":[{"channel":"test","formats":{"ws-message":{"content":"hello"}}}]}' \
   https://api.fastly.com/service/{service-id}/publish/
 ```
+
+## How it works
+
+Non-test requests are simply forwarded through the Fanout proxy and on to the origin.
+
+For test requests, the app is actually invoked twice.
+
+1. Initially, a client request arrives at the app without having been routed through the Fanout proxy yet. The app checks for this via the presence of a `Grip-Sig` header. If that header is not present, the app calls `req.handoff_fanout("self")` and exits. This tells the subsystem that the connection should be routed through Fanout, and is used for HTTP requests controlled by GRIP.
+
+2. Since `self` refers to the same app, a second request is made to the same app, this time coming through Fanout. The app checks for this, and then handles the request accordingly (in `handle_test()`).
+
+## Compatibility
+
+- [Fastly CLI](https://www.fastly.com/documentation/reference/tools/cli/) 15.2.0 or newer
+- [Fastly Local Development Server (Viceroy)](https://www.fastly.com/documentation/guides/compute/developer-guides/testing/#running-a-local-testing-server) 0.18.0 or newer
 
 ## Security issues
 
